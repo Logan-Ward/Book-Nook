@@ -1,0 +1,50 @@
+{
+  "expo": {
+    "name": "Book-Nook",
+    "slug": "Book-Nook",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "plugins": [
+      [
+        "expo-font",
+        {
+          "fonts": [
+            "./assets/fonts/Montserrat-VariableFont_wght.ttf"
+          ]
+        }
+      ]
+    ],
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "config": {
+        "googleMapsApiKey": "AIzaSyDhdMLZejbAor8133zf5mJh_gBhGOmz3ok"
+      },
+      "bundleIdentifier": "com.anonymous.BookNook"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyDhdMLZejbAor8133zf5mJh_gBhGOmz3ok"
+        }
+      },
+      "package": "com.anonymous.BookNook"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}
