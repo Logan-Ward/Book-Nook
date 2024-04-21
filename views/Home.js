@@ -1,8 +1,10 @@
-import { StyleSheet, Text, View, Button, Pressable } from 'react-native';
+import { StyleSheet, Text, View, Pressable, Image } from 'react-native';
 import { useState, useEffect } from 'react';
+import { Montserrat_400Regular, useFonts } from '@expo-google-fonts/montserrat'
 import supabase from '../lib/supabase';
 
 export default function Home({ navigation }) {
+
   const [user, setUser] = useState(false);
 
   useEffect(() => {
@@ -21,8 +23,17 @@ export default function Home({ navigation }) {
     });
   }, []);
 
+  let [fontsLoaded] = useFonts({
+    Montserrat_400Regular,
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
   return (
     <View style={styles.container}>
+      {/* <Image style={styles.image} source={require('../assets/bookmark.png')}/> */}
       <Text style={styles.title1}>book</Text>
       <Text style={styles.title2}>nook</Text>
       <Pressable
@@ -38,7 +49,7 @@ export default function Home({ navigation }) {
         <Pressable
           style={[styles.buttonCreate, styles.button]}
           onPress={() => navigation.navigate('CreateLoc')}
-          ><Text style={styles.buttonText}>Create Location</Text></Pressable>
+          ><Text style={styles.buttonText}>New Location</Text></Pressable>
           <Pressable
             style={[styles.buttonBookM, styles.button]}
             onPress={() => navigation.navigate('Bookmarks')}
@@ -47,21 +58,13 @@ export default function Home({ navigation }) {
             style={[styles.buttonSettings, styles.button]}
             onPress={() => navigation.navigate('Settings')}
             ><Text style={styles.buttonText}>Settings</Text></Pressable>
-          <Pressable
-            style={[styles.buttonLogout, styles.button]}
-            onPress={() => supabase.auth.signOut()}
-            ><Text style={styles.buttonText}>Logout</Text></Pressable>
         </>
       ) : (
         <>
           <Pressable
-            style={[styles.buttonLogin, styles.button]}
+            style={[styles.buttonSettings, styles.button]}
             onPress={() => navigation.navigate('Auth')}
             ><Text style={styles.buttonText}>Login/Signup</Text></Pressable>
-          <Pressable
-            style={[styles.buttonSettings, styles.button]}
-            onPress={() => navigation.navigate('Settings')}
-            ><Text style={styles.buttonText}>Settings</Text></Pressable>
         </>
       )}
       <Pressable
@@ -79,19 +82,26 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
   },
+  // image: {
+  //   position: 'absolute',
+  //   top: '5%',
+  //   left: '15%',
+  //   width: '100%',
+  //   height: '100%',
+  // },
   title1: {
     position: 'absolute',
-    fontWeight: 'bold',
-    fontSize: 35,
-    top: '8%',
+    fontSize: 50,
+    top: '5%',
     left: '15%',
+    fontFamily: 'Montserrat_400Regular'
   },
   title2: {
     position: 'absolute',
-    fontWeight: 'bold',
-    fontSize: 35,
-    top: '15%',
-    left: '37%',
+    fontSize: 50,
+    top: '14%',
+    left: '45%',
+    fontFamily: 'Montserrat_400Regular'
   },
   button: {
     position: 'absolute',
@@ -104,41 +114,43 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontSize: 30,
-    fontWeight: 'bold',
+    fontFamily: 'Montserrat_400Regular'
   },
   buttonSearch: {
-    top: '30%',
+    top: '28%',
     left: '15%',
   },
-  buttonMap: {
-    top: '50%',
-    left: '74%',
-  },
   buttonCreate: {
-    top: '40%',
+    top: '42%',
     left: '30%',
   },
+  buttonMap: {
+    top: '56%',
+    left: '74%',
+  },
   buttonBookM: {
-    top: '60%',
+    top: '70%',
     left: '30%',
   },
   buttonSettings: {
     position: 'absolute',
-    top: '70%',
+    top: '84%',
     left: '15%',
   },
   buttonLogin: {
     top: '90%',
-    left: '10%',
-  },
-  buttonLogout: {
-    top: '90%',
-    left: '11%',
+    left: '8%',
+    borderColor: 'black',
+    borderWidth: 1,
+    borderRadius: 10,
+    paddingTop: 2,
+    paddingBottom: 4,
+    paddingHorizontal: 8,
   },
   buttonQuestion: {
     position: 'absolute',
-    top: '8%',
-    left: '85%',
+    top: '5%',
+    left: '83%',
     borderColor: 'black',
     borderWidth: 1,
     borderRadius: 40,
