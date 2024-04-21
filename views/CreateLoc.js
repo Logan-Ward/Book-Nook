@@ -37,6 +37,15 @@ export default function CreateLoc() {
   const [position, setPosition] = useState({
     latitude: 0,
     longitude: 0,
+    latitudeDelta: 0,
+    longitudeDelta: 0,
+    pitch: 0,
+    heading: 0,
+    zoom: 0,
+    center: {
+      latitude: 0,
+      longitude: 0,
+    }
   });
   const camera = useRef(null);
 
@@ -70,8 +79,19 @@ export default function CreateLoc() {
     setPosition({
       latitude: location.coords.latitude,
       longitude: location.coords.longitude,
+      latitudeDelta: 0,
+      longitudeDelta: 0,
+      pitch: 0,
+      heading: 0,
+      zoom: 0,
+      center: {
+        latitude: location.coords.latitude,
+        longitude: location.coords.longitude,
+      }
     });
   }
+
+  // TODO: Verify that zoom works with touch controls as intended.
 
   return (
     <>
@@ -103,6 +123,15 @@ export default function CreateLoc() {
                 setPosition({
                   latitude: v.nativeEvent.coordinate.latitude,
                   longitude: v.nativeEvent.coordinate.longitude,
+                  latitudeDelta: 0,
+                  longitudeDelta: 0,
+                  pitch: 0,
+                  heading: 0,
+                  zoom: 0,
+                  center: {
+                    latitude: v.nativeEvent.coordinate.latitude,
+                    longitude: v.nativeEvent.coordinate.longitude,
+                  }
                 })
               }
               ref={camera}
