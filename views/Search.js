@@ -37,7 +37,7 @@ export default function Search({ navigation }) {
             <Text style={styles.searchText}>Search</Text>
           </Pressable>
         </View>
-        <View style={styles.filters}>
+        {/* <View style={styles.filters}>
           <Pressable
             style={styles.filter}
             onPress={() => console.log('Filter 1')}
@@ -68,7 +68,7 @@ export default function Search({ navigation }) {
           >
             <Text style={styles.filterText}>Filter 5</Text>
           </Pressable>
-        </View>
+        </View> */}
         <View style={styles.results}>
           <FlatList
             data={results}
@@ -108,19 +108,19 @@ const styles = StyleSheet.create({
   },
   searchButton: {},
   searchText: {},
-  filters: {
-    flex: 10,
-    flexDirection: 'row',
-  },
-  filter: {
-    borderColor: 'black',
-    borderWidth: 1,
-    borderRadius: 10,
-    paddingTop: 2,
-    paddingBottom: 4,
-    paddingHorizontal: 8,
-  },
-  filterText: {},
+  // filters: {
+  //   flex: 10,
+  //   flexDirection: 'row',
+  // },
+  // filter: {
+  //   borderColor: 'black',
+  //   borderWidth: 1,
+  //   borderRadius: 10,
+  //   paddingTop: 2,
+  //   paddingBottom: 4,
+  //   paddingHorizontal: 8,
+  // },
+  // filterText: {},
   results: {
     flex: 80,
     width: '100%',
