@@ -1,7 +1,7 @@
-import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StyleSheet } from 'react-native';
-import { useEffect } from 'react';
+import { StatusBar } from "expo-status-bar";
 import Home from './views/Home';
 import Map from './views/Map';
 import Search from './views/Search';
@@ -10,6 +10,7 @@ import Auth from './views/Auth';
 import Location from './components/Location';
 import Nav from './components/Nav';
 import CreateLoc from './views/CreateLoc';
+import Settings from './views/Settings';
 
 const Stack = createNativeStackNavigator();
 // TODO: If user is signed in and navigates to the Bookmarks/CreateLoc page then signs out, 
@@ -40,6 +41,7 @@ export default function App() {
         initialRouteName='Home'
         screenOptions={{
           headerShown: false,
+          animation: 'none'
         }}
       >
         <Stack.Group>
@@ -49,6 +51,7 @@ export default function App() {
           <Stack.Screen name='Bookmarks' component={Bookmarks} />
           <Stack.Screen name='Auth' component={Auth} />
           <Stack.Screen name='CreateLoc' component={CreateLoc} />
+          <Stack.Screen name='Settings' component={Settings} />
         </Stack.Group>
         <Stack.Group
           screenOptions={{
@@ -59,6 +62,7 @@ export default function App() {
           <Stack.Screen name='Nav' component={Nav} />
         </Stack.Group>
       </Stack.Navigator>
+      <StatusBar translucent={true} style={'auto'}/>
     </NavigationContainer>
   );
 }
