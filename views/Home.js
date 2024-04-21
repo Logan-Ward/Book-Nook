@@ -31,9 +31,10 @@ export default function Home({ navigation }) {
     return null;
   }
 
+  // TODO: Wrap the book and nook lines in an svg bookmark
+
   return (
     <View style={styles.container}>
-      {/* <Image style={styles.image} source={require('../assets/bookmark.png')}/> */}
       <Text style={styles.title1}>book</Text>
       <Text style={styles.title2}>nook</Text>
       <Pressable
@@ -82,13 +83,6 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
   },
-  // image: {
-  //   position: 'absolute',
-  //   top: '5%',
-  //   left: '15%',
-  //   width: '100%',
-  //   height: '100%',
-  // },
   title1: {
     position: 'absolute',
     fontSize: 50,
